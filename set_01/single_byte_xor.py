@@ -30,7 +30,7 @@ def score_english(bytes: bytes):
 def printable_bytes(bytes: bytes):
     allowed_letters = string.ascii_letters + \
         string.digits + string.punctuation + " "
-    return all(chr(c) in allowed_letters for c in xored)
+    return all(chr(c) in allowed_letters for c in bytes)
 
 
 if __name__ == "__main__":
