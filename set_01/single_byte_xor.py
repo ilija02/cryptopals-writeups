@@ -34,16 +34,16 @@ def printable_bytes(bytes: bytes):
 
 
 if __name__ == "__main__":
-    scoreboard = {}
-    ciphertext = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
+    _scoreboard = {}
+    _ciphertext = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
     for i in range(32, 127):  # all printable chars
-        xored = xor_with_byte(ciphertext, i)
+        xored = xor_with_byte(_ciphertext, i)
         if not printable_bytes(xored):  # filter strings with non-printable chars
             continue
         else:
             score = score_english(xored)
-            scoreboard[xored] = (score, i)
-    scoreboard = sorted(scoreboard.items(),
+            _scoreboard[xored] = (score, i)
+    _scoreboard = sorted(_scoreboard.items(),
                         key=lambda x: x[1][0], reverse=True)  # sort by score
     print(
-        f"Most probable text: {scoreboard[0][0]}. Score: {scoreboard[0][1][0]}. Key: {scoreboard[0][1][1]}")
+        f"Most probable text: {_scoreboard[0][0]}. Score: {_scoreboard[0][1][0]}. Key: {_scoreboard[0][1][1]}")
